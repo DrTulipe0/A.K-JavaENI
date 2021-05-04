@@ -3,9 +3,13 @@
 2021-05-04 09:11:22,706 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-05-04 09:12:35,752 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-05-04 09:37:41,493 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+<<<<<<< HEAD
 2021-05-04 09:49:12,070 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-05-04 09:50:56,718 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo1.maven.org/maven2/org/wso2/maven/maven-car-plugin/5.2.35/maven-car-plugin-5.2.35.jar
 2021-05-04 09:50:57,186 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo1.maven.org/maven2/org/wso2/maven/maven-car-plugin/5.2.35/maven-car-plugin-5.2.35.jar
 2021-05-04 09:50:57,301 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo1.maven.org/maven2/org/wso2/maven/maven-car-plugin/5.2.35/maven-car-plugin-5.2.35.pom
 2021-05-04 09:50:57,511 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo1.maven.org/maven2/org/wso2/maven/maven-car-plugin/5.2.35/maven-car-plugin-5.2.35.pom
 2021-05-04 09:54:31,925 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+=======
+2021-05-04 09:48:43,751 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+>>>>>>> a740e187a882d611a64161cc72447b2d9c7ff325

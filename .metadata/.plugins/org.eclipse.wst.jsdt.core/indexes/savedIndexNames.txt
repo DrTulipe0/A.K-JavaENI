@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\devil\java\A.K-JavaENI\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3963541935.index
+1287243590.index
+3128625375.index
+2343263789.index
+886014054.index
+4115664626.index
