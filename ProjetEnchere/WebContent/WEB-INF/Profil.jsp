@@ -1,19 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Profil</title>
-</head>
-<body>
-	Pseudo :
-	Nom :
-	PrÃ©nom :
-	Email :
-	TÃ©lÃ©phone :
-	Rue : 
-	Code Postal :
-	Ville :
-</body>
-</html>
+<h1>Mon Profil</h1>
+Pseudo : <input type="text" name="pseudo" />			Nom : <input type="text" name="nom" /> <br>
+Prénom : <input type="text" name="prenom" />			Email : <input type="text" name="email" /> <br>
+Teléphone : <input type="text" name="telephone" />		Rue : <input type="text" name="rue" /> <br>
+Code Postal : <input type="text" name="codePostal" />	Ville : <input type="text" name="ville" /> <br>
+Mot de passe : <input type="text" name="mdp" />			Confirmation : <input type="text" name="mdpVerif" /> <br>

@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Création enchère</title>
+<title>Resultat</title>
 </head>
 <body>
 	<jsp:include page="Header.jsp"/>
-	<jsp:include page="NouvelleVente.jsp"/>
-	<input type="submit" value="Enregistrer">
-	<input type="submit" value="Annuler">
-	<input type="submit" value="Annuler la vente">
+	${utilisateur} a remporté l'enchère
+	<jsp:include page="Resultat.jsp"/>
+	<input type="submit" value="Retrait effectué">
 </body>
 </html>

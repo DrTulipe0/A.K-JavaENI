@@ -1,7 +1,6 @@
 package fr.formation.enchere.ihm;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AccueilServlet
+ * Servlet implementation class AccueilServletNonConnecte
  */
-@WebServlet("/AccueilServlet")
-public class AccueilServlet extends HttpServlet {
+@WebServlet("/AccueilServletNonConnecte")
+public class AccueilServletNonConnecte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public AccueilServlet() {
+    public AccueilServletNonConnecte() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -26,11 +26,7 @@ public class AccueilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("typeTransaction") != null || request.getParameter("typeTransaction") != "") {
-			if(request.getParameter("typeTransaction") = "achat") {
-				
-			}
-		}
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
