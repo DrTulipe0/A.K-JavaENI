@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Profil</title>
+</head>
+<body>
+	Pseudo :
+	Nom :
+	Prénom :
+	Email :
+	Téléphone :
+	Rue : 
+	Code Postal :
+	Ville :
+</body>
+</html>

@@ -1,6 +1,8 @@
 package fr.formation.enchere.ihm;
 
 import java.io.IOException;
+import java.util.Locale;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +27,19 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String next ="WEB-INF/login.jsp";
+		request.setAttribute("locale", Locale.FRENCH);
+		
+		if(request.getParameter("login")!=null) {
+			if(!"".equals(request.getParameter("pass"))) {
+				request.getSession().setAttribute("login", request.getParameter("login"));
+				next ="/AccueilServlet";
+			}
+			else {
+				request.setAttribute("erreur","login impossible");
+			}
+		}
+		request.getRequestDispatcher(next).forward(request, response);
 	}
 
 	/**
