@@ -1,22 +1,22 @@
 package fr.formation.enchere.dal;
 
 import java.util.List;
-import fr.formation.enchere.bo.Enchere_perso;;
+import fr.formation.enchere.bo.Enchere;
 
 public interface EnchereDAO {
 	//Sélectionner une enchère
-	public Enchere_perso select(int idEnchere) throws DALException;
+	public Enchere select(int idEnchere) throws DALException;
 	
 	//Créer une enchère
-	public Enchere_perso insert(Enchere_perso enchere) throws DALException;
+	public Enchere insert(Enchere enchere) throws DALException;
 	
 	//Modifier une enchère
-	public Enchere_perso update(Enchere_perso enchere) throws DALException;
+	public Enchere update(Enchere enchere) throws DALException;
 	
 	//Sélectionner toutes les enchères
-	public Enchere_perso selectAll(int idEnchere, String categorieEnchere) throws DALException;
+	public Enchere selectAll(int idEnchere, String categorieEnchere) throws DALException;
 	
 	//Supprimer une enchère
-	public Enchere_perso delete(int idEnchere) throws DALException;
+	public Enchere delete(int idEnchere) throws DALException;
 	
 }

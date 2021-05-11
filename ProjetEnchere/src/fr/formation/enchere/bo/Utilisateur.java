@@ -1,6 +1,6 @@
 package fr.formation.enchere.bo;
 
-public class Profile {
+public class Utilisateur {
 	private int idUtilisateur;
 	private String pseudo;
 	private String nom;
@@ -15,7 +15,7 @@ public class Profile {
 	private boolean administrateur;
 	
 	
-	public Profile(int idUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, int codePostal, String ville, String motDePasse,
+	public Utilisateur(int idUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, int codePostal, String ville, String motDePasse,
 			float credit, boolean administrateur) {
 		super();
 		this.idUtilisateur = idUtilisateur;
@@ -32,7 +32,7 @@ public class Profile {
 		this.administrateur = administrateur;
 	}
 	
-	public Profile() {
+	public Utilisateur() {
 		super();
 	}
 
@@ -43,7 +43,7 @@ public class Profile {
 	public void setIdUtilisateur(int idUtilisateur) {
 		this.idUtilisateur = idUtilisateur;
 	}
-
+	//
 	public String getPseudo() {
 		return pseudo;
 	}
@@ -51,15 +51,15 @@ public class Profile {
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
-
+	//
 	public String getNom() {
 		return nom;
 	}
-
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
+	//
 	public String getPrenom() {
 		return prenom;
 	}
@@ -67,7 +67,7 @@ public class Profile {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
+	//
 	public String getEmail() {
 		return email;
 	}
@@ -75,7 +75,7 @@ public class Profile {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	//
 	public String getTelephone() {
 		return telephone;
 	}
@@ -83,7 +83,7 @@ public class Profile {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
+	//
 	public String getRue() {
 		return rue;
 	}
@@ -91,7 +91,7 @@ public class Profile {
 	public void setRue(String rue) {
 		this.rue = rue;
 	}
-
+	//
 	public int getCodePostal() {
 		return codePostal;
 	}
@@ -99,7 +99,7 @@ public class Profile {
 	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
 	}
-
+	//
 	public String getVille() {
 		return ville;
 	}
@@ -107,7 +107,7 @@ public class Profile {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
+	//
 	public String getMotDePasse() {
 		return motDePasse;
 	}
@@ -115,7 +115,7 @@ public class Profile {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-
+	//
 	public float getCredit() {
 		return credit;
 	}
@@ -123,7 +123,7 @@ public class Profile {
 	public void setCredit(float credit) {
 		this.credit = credit;
 	}
-
+	//
 	public boolean isAdministrateur() {
 		return administrateur;
 	}
