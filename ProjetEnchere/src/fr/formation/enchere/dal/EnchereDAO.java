@@ -5,7 +5,7 @@ import fr.formation.enchere.bo.Enchere;
 
 public interface EnchereDAO {
 	//Sélectionner une enchère
-	public Enchere select(int idEnchere) throws DALException;
+	public Enchere select(int no_utilisateur, int no_article) throws DALException;
 	
 	//Créer une enchère
 	public Enchere insert(Enchere enchere) throws DALException;
@@ -14,9 +14,9 @@ public interface EnchereDAO {
 	public Enchere update(Enchere enchere) throws DALException;
 	
 	//Sélectionner toutes les enchères
-	public Enchere selectAll(int idEnchere, String categorieEnchere) throws DALException;
+	public List<Enchere> selectAll(String categorieEnchere) throws DALException;
 	
 	//Supprimer une enchère
-	public Enchere delete(int idEnchere) throws DALException;
+	public Enchere delete(int no_utilisateur, int no_article) throws DALException;
 	
 }
