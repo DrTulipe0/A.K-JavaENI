@@ -1,7 +1,7 @@
 			<h1>Nouvelle Vente</h1>
 	Article : <input type="text" name="article" />
-	Description : <input type="text" name="login" /> 
-	Catégorie : <select name="toute" size="4">
+	Description : <input type="text" name="desc" /> 
+	Catégorie : <select name="categorie" size="4">
 			<option value="Informatique">Informatique</option>
 			<option value="Ammeublement">Ammeublement</option>
 			<option value="Vêtement">Vêtement</option>

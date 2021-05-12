@@ -18,15 +18,15 @@ public class LogoutServlet extends HttpServlet {
      * Default constructor. 
      */
     public LogoutServlet() {
-        // TODO Auto-generated constructor stub
+        super();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getSession().setAttribute("login", null);
+		request.getRequestDispatcher("/LoginServlet").forward(request, response);
 	}
 
 	/**

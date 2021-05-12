@@ -16,7 +16,9 @@
 		Rue : ${rue}
 		Code Postal : ${codePostal}
 		Ville : ${ville}
-		<input type="submit" value="Modifier">
+		<c:if test = "${MonProfil == 1}">
+			<input type="submit" value="Modifier">
+		</c:if>
 	</form>
 </body>
 </html>

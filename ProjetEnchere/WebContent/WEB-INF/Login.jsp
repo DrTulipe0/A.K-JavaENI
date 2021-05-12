@@ -16,7 +16,7 @@
 		<a href="">Mot de passe oublié</a>
 		<input type="submit" value="Se connecter..">
 	</form>
-	<form method="post" action="InscriptionServlet">
+	<form action="CreationProfil">
 		<input type="submit" value="S'enregistrer">
 	</form>
 </body>

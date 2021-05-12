@@ -5,11 +5,11 @@ Description : ${descriptionEnchere}
 Catégorie : ${categorie}
 </c:if>
 Meilleur offre : ${enchere.montant_enchere}
-Mise à prix : 
-<c:if test = "${finEnchere == 1}">
-Fin de l'enchère : 
+Mise à prix : ${prixOrigine}
+<c:if test = "${dateFin != null}">
+Fin de l'enchère : ${dateFin}
 </c:if>
-<c:if test = "${bonProfil == 1}">
-Retrait : 
+<c:if test = "${adresseRecup == 1}">
+Retrait : ${adresseRecup}
 </c:if>
-Vendeur
+Vendeur		${vendeur}

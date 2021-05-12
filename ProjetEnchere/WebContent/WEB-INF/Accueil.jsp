@@ -12,7 +12,8 @@
 		<h2>Liste des enchères</h2>
 		<h3>Filtres : </h3>
 		<input type="text" name="Filtre" /> 
-		<h4>Catégorie </h4> <select name="toute" size="4">
+		<h4>Catégorie </h4> <select name="toute" size="5">
+			<option value="toute">toute</option>
 			<option value="Informatique">Informatique</option>
 			<option value="Ammeublement">Ammeublement</option>
 			<option value="Vêtement">Vêtement</option>
