@@ -35,6 +35,11 @@ public class Retrait {
 	public int getCodePostal() {
 		return codePostal;
 	}
+	@Override
+	public String toString() {
+		return "Retrait [no_article=" + no_article + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
+				+ "]";
+	}
 	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
 	}

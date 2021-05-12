@@ -50,6 +50,15 @@ public class Enchere_perso {
 	public void setDescriptionArticle(String descriptionArticle) {
 		this.descriptionArticle = descriptionArticle;
 	}
+	@Override
+	public String toString() {
+		return "Enchere_perso [libelleArticle=" + libelleArticle + ", descriptionArticle=" + descriptionArticle
+				+ ", categorie=" + categorie + ", cheminImage=" + cheminImage + ", prixDepart=" + prixDepart
+				+ ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", adresseRueRetrait=" + adresseRueRetrait
+				+ ", codePostalRetrait=" + codePostalRetrait + ", villeRetrait=" + villeRetrait + ", statutEnchere="
+				+ statutEnchere + "]";
+	}
+
 	//
 	public String getCategorie() {
 		return categorie;

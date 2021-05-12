@@ -11,7 +11,9 @@ import java.util.List;
 import fr.formation.enchere.bo.Enchere;
 //importer fr.formation.enchere..dal.util.ConnectionProvider;
 public class EnchereDAOImpl implements EnchereDAO {
-	private static final String sqlSelectAllEncheres 	= "Select * from ENCHERES";
+	private String sqlSelectAllEncheres 	= "Select av.*, e.date_enchere, e.montant_enchere from ENCHERES e"
+														+ "	left join ARTICLES_VENDUS av on av.no_article = e.no_article"
+														+ " where av.no_utilisateur = e.no_utilisateur";
 	private static final String sqlSelectEnchere		= "Select * from ENCHERES where no_utilisateur =? and no_article = ?";
 	private static final String sqlUpdateEncheres		= "Update ENCHERES set date_enchere = ?, montant_enchere = ? where no_article = ? and no_utilisateur = ?";
 	private static final String sqlDeleteEncheres		= "Delete from ENCHERES where no_utilisateur = ? and no_article = ?";
@@ -89,7 +91,21 @@ public class EnchereDAOImpl implements EnchereDAO {
 	}
 	
 	//Sélectionner toutes les enchères
-	public List<Enchere> selectAll(String categorieEnchere) throws DALException {
+	public List<Enchere> selectAll(int categorieEnchere, String libelleEnchere) throws DALException {
+		
+		if(categorieEnchere != 0 && libelleEnchere != null && libelleEnchere != "")
+		{
+			sqlSelectAllEncheres += " and av.no_categorie =" + categorieEnchere + " and upper(av.nom_article) like upper('%" + libelleEnchere + "%')";
+		}
+		if(categorieEnchere == 0 && libelleEnchere != null && libelleEnchere != "")
+		{
+			sqlSelectAllEncheres += " and upper(av.nom_article) like upper('%" + libelleEnchere + "%')";
+		}
+		if(categorieEnchere != 0 && (libelleEnchere == null || libelleEnchere == ""))
+		{
+			sqlSelectAllEncheres += " and av.no_categorie = " + categorieEnchere;
+		}
+		
 		Statement rqt = null;
 		ResultSet rs = null;
 		List<Enchere> liste = new ArrayList<Enchere>();
@@ -118,7 +134,6 @@ public class EnchereDAOImpl implements EnchereDAO {
 		PreparedStatement rqt = null;
 		try (Connection connection = ConnectionProvider.getConnection()) {
 			System.out.println("Connexion: " + connection);
-
 			try {
 				rqt = connection.prepareStatement(sqlDeleteEncheres);
 				rqt.setInt(1, no_utilisateur);
@@ -132,7 +147,5 @@ public class EnchereDAOImpl implements EnchereDAO {
 		}
 		return null;
 	}
-	
-	
-	
+		
 }

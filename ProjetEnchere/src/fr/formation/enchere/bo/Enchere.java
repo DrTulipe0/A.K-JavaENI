@@ -24,6 +24,11 @@ public class Enchere {
 	public void setNoUtilisateur(int no_utilisateur) {
 		this.no_utilisateur = no_utilisateur;
 	}
+	@Override
+	public String toString() {
+		return "Enchere [dateEnchere=" + dateEnchere + ", montant_enchere=" + montant_enchere + ", no_utilisateur="
+				+ no_utilisateur + ", no_article=" + no_article + "]";
+	}
 	//
 	public int getNoArticle() {
 		return no_article;

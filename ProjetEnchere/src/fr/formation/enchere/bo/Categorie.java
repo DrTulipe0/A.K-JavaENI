@@ -29,6 +29,11 @@ public class Categorie {
 	public void setLibelleCategorie(String libelleCategorie) {
 		this.libelleCategorie = libelleCategorie;
 	}
+	@Override
+	public String toString() {
+		return "Categorie [noCategorie=" + noCategorie + ", libelleCategorie=" + libelleCategorie + "]";
+	}
+	
 
 	
 }
