@@ -21,7 +21,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 	
 	
 	// Sélectionner un article
-	public ArticleVendu selectArticle(int no_article, boolean etat_vente) throws DALException {
+	public ArticleVendu selectArticle(int no_article, int no_utilisateur, int no_categorie, boolean etat_vente) throws DALException {
 		PreparedStatement rqt = null;
 		ResultSet rs = null;
 		ArticleVendu art = null;
@@ -34,7 +34,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 
 				rs = rqt.executeQuery();
 				while (rs.next()) {
-					art = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"),rs.getString("description"),rs.getString("date_debut_encheres"),rs.getString("date_fin_encheres"), 
+					art = new ArticleVendu(rs.getInt("no_article"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"), rs.getString("nom_article"),rs.getString("description"),rs.getString("date_debut_encheres"),rs.getString("date_fin_encheres"), 
 							rs.getFloat("prix_initial"), rs.getFloat("prix_vente"), etat_vente);
 				}
 			} catch (SQLException e) {

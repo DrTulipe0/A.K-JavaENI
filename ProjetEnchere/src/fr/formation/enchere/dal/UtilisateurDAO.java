@@ -4,7 +4,7 @@ import fr.formation.enchere.bo.Utilisateur;
 
 public interface UtilisateurDAO {
 	// Sélectionner un utilisateur
-	public Utilisateur selectUtilisateur() throws DALException;
+	public Utilisateur selectUtilisateur(int no_utilisateur) throws DALException;
 	
 	//modifier un utilisateur
 	public Utilisateur updateUtilisateur() throws DALException;
@@ -13,5 +13,5 @@ public interface UtilisateurDAO {
 	public Utilisateur insertUtilisateur() throws DALException;
 	
 	//supprimer un utilisateur
-	public Utilisateur deleteUtilisateur() throws DALException;
+	public Utilisateur deleteUtilisateur(int no_utilisateur) throws DALException;
 }
