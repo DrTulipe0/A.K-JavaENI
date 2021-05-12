@@ -20,7 +20,7 @@ public class EnchereDAOImpl implements EnchereDAO {
 	
 	//Sélectionner une enchère
 	public Enchere select(int no_utilisateur, int no_article) throws DALException {
-		Statement rqt = null;
+		PreparedStatement rqt = null;
 		ResultSet rs = null;
 		Enchere ench = null;
 		try (Connection connection = ConnectionProvider.getConnection()) {
@@ -121,8 +121,8 @@ public class EnchereDAOImpl implements EnchereDAO {
 
 			try {
 				rqt = connection.prepareStatement(sqlDeleteEncheres);
-				rqt.setInt(1, no_utilisateur.getNoUtilisateur());
-				rqt.setInt(2, no_article.getNoArticle());
+				rqt.setInt(1, no_utilisateur);
+				rqt.setInt(2, no_article);
 				rqt.executeUpdate();
 			} catch (SQLException e) {
 				throw new DALException("Delete enchere failed - " + no_utilisateur + " - " + no_article, e);

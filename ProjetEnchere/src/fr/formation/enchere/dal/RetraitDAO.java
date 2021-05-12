@@ -4,14 +4,14 @@ import fr.formation.enchere.bo.Retrait;
 
 public interface RetraitDAO {
 	// Sélectionner un Retrait
-	public Retrait selectRetrait() throws DALException;
+	public Retrait selectRetrait(int no_article) throws DALException;
 	
 	//modifier un Retrait
-	public Retrait updateRetrait() throws DALException;
+	public Retrait updateRetrait(Retrait ret) throws DALException;
 	
 	//insérer un Retrait
-	public Retrait insertRetrait() throws DALException;
+	public Retrait insertRetrait(Retrait ret) throws DALException;
 	
 	//supprimer un Retrait
-	public Retrait deleteRetrait() throws DALException;
+	public Retrait deleteRetrait(int no_article) throws DALException;
 }

@@ -6,12 +6,14 @@ public class ArticleVendu {
 	private String description;
 	private String dateDebutEncheres;
 	private String dateFinEncheres;
-	private int miseAPrix;
-	private int prixVente;
-	private String etatVente;
+	private float miseAPrix;
+	private float prixVente;
+	private boolean etatVente;
+	private int no_utilisateur;
+	private int no_categorie;
 	
 	
-	public ArticleVendu(int noArticle, String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+	public ArticleVendu(int noArticle, int no_utilisateur, int no_categorie, String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres, float miseAPrix, float prixVente, boolean etatVente) {
 		super();
 		
 		this.noArticle = noArticle;
@@ -23,7 +25,7 @@ public class ArticleVendu {
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
 		
-	}
+	}	
 	public ArticleVendu( ) {
 		super();
 	}
@@ -33,6 +35,20 @@ public class ArticleVendu {
 	}
 	public void setNoArticle(int noArticle) {
 		this.noArticle = noArticle;
+	}
+	//
+	public int getNo_utilisateur() {
+		return no_utilisateur;
+	}
+	public void setNo_utilisateur(int no_utilisateur) {
+		this.no_utilisateur = no_utilisateur;
+	}
+	//
+	public int getNo_categorie() {
+		return no_categorie;
+	}
+	public void setNo_categorie(int no_categorie) {
+		this.no_categorie = no_categorie;
 	}
 	//
 	public String getNomArticle() {
@@ -63,24 +79,24 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 	//
-	public int getMiseAPrix() {
+	public float getMiseAPrix() {
 		return miseAPrix;
 	}
-	public void setMiseAPrix(int miseAPrix) {
+	public void setMiseAPrix(float miseAPrix) {
 		this.miseAPrix = miseAPrix;
 	}
 	//
-	public int getPrixVente() {
+	public float getPrixVente() {
 		return prixVente;
 	}
-	public void setPrixVente(int prixVente) {
+	public void setPrixVente(float prixVente) {
 		this.prixVente = prixVente;
 	}
 	//
-	public String getEtatVente() {
+	public boolean getEtatVente() {
 		return etatVente;
 	}
-	public void setEtatVente(String etatVente) {
+	public void setEtatVente(boolean etatVente) {
 		this.etatVente = etatVente;
 	}
 }

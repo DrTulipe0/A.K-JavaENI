@@ -1,11 +1,12 @@
 package fr.formation.enchere.bo;
 
 public class Retrait {
+	private int no_article;
 	private String rue;
 	private int codePostal;
 	private String ville;
 
-	public Retrait(String rue, int codePostal, String ville) {
+	public Retrait(int no_article, String rue, int codePostal, String ville) {
 		super();
 		
 		this.rue = rue;
@@ -16,6 +17,14 @@ public class Retrait {
 		super();
 	}
 	
+	
+	public int getNo_article() {
+		return no_article;
+	}
+	public void setNo_article(int no_article) {
+		this.no_article = no_article;
+	}
+	//
 	public String getRue() {
 		return rue;
 	}
