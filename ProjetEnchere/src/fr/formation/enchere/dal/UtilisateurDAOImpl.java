@@ -11,7 +11,7 @@ import java.util.List;
 import fr.formation.enchere.bo.Retrait;
 import fr.formation.enchere.bo.Utilisateur;
 
-public class UtilisateurDAOImpl {
+public class UtilisateurDAOImpl implements UtilisateurDAO {
 	private static final String sqlSelectUtilisateur		= "Select * from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlUpdateUtilisateur	= "Update UTILISATEURS "
 														+ "set no_utilisateur = ?, pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, "
