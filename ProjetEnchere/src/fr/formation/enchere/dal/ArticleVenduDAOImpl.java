@@ -114,5 +114,4 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 		}
 		return null;
 	}
-	}
 }
