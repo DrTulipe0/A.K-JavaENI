@@ -7,9 +7,11 @@
 <title>Inscription</title>
 </head>
 <body>
-	<form action="ProfilModifServlet">
+	<form action="InscriptionServlet">
+		${erreur}
 		<jsp:include page="Profil.jsp"/>
-		<input type="submit" value="Créer">					<input type="submit" value="Annuler">
+		<input type="submit" value="Créer">
 	</form>
+	<input type="submit" value="Annuler">
 </body>
 </html>

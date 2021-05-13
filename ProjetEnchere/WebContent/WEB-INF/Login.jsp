@@ -13,10 +13,10 @@
 		Mot de passe : <input type="password" name="pass" />
 		<input type="checkbox" id="souvenirConnexion" name="souvenirConnexion" value="souvenirConnexion">
 		<label for="souvenirConnexion"> Se souvenir de moi</label><br>
-		<a href="">Mot de passe oublié</a>
+		<a href="">Mot de passe oublié</a><br>
 		<input type="submit" value="Se connecter..">
 	</form>
-	<form action="CreationProfil">
+	<form action="InscriptionServlet">
 		<input type="submit" value="S'enregistrer">
 	</form>
 </body>

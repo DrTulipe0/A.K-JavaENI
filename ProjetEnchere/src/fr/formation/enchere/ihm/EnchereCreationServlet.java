@@ -30,22 +30,7 @@ public class EnchereCreationServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Calcul calcul = new Calcul(0,0,"");
-		if (request.getParameter("a") != null) {
-			Integer a = Integer.parseInt(request.getParameter("a"));
-			Integer b = Integer.parseInt(request.getParameter("b"));
-			String op = request.getParameter("op");
-			
-			calcul = new Calcul(a, b, op);
-			try {
-				calcul = manager.calculate(calcul);
-			} catch (CalculManagerException e) {
-				request.setAttribute("erreur", e.getMessage());
-			}
-		}
-
-		request.setAttribute("calcul", calcul);
-		request.getRequestDispatcher("WEB-INF/calcul.jsp").forward(request, response);
+		
 	}
 
 	/**

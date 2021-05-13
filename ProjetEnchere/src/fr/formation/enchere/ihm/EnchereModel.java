@@ -4,60 +4,95 @@ import java.util.List;
 
 import fr.formation.enchere.bo.ArticleVendu;
 import fr.formation.enchere.bo.Enchere;
+import fr.formation.enchere.bo.Retrait;
 import fr.formation.enchere.bo.Utilisateur;
 
 public class EnchereModel {
 
-	private Enchere enchere;
-	private List<Enchere> lstEnchere;
-	private ArticleVendu article;
-	private List<ArticleVendu> lstArticle;
-	private Utilisateur util;
+	private String nomArticle;
+	private String description;
+	private String dateDebutEncheres;
+	private String dateFinEncheres;
+	private float miseAPrix;
+	private float prixVente;
+	private String nomUtilisateur;
+	
 	public EnchereModel() {
 	}
-	public EnchereModel(Enchere enchere, List<Enchere> lstEnchere, ArticleVendu article, List<ArticleVendu> lstArticle,
-			Utilisateur util) {
+
+	public EnchereModel(String nomArticle, String description, String dateDebutEncheres, String dateFinEncheres,
+			float miseAPrix, float prixVente, String nomUtilisateur) {
 		super();
-		this.enchere = enchere;
-		this.lstEnchere = lstEnchere;
-		this.article = article;
-		this.lstArticle = lstArticle;
-		this.util = util;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.nomUtilisateur = nomUtilisateur;
 	}
-	public Enchere getEnchere() {
-		return enchere;
+
+	public String getNomArticle() {
+		return nomArticle;
 	}
-	public void setEnchere(Enchere enchere) {
-		this.enchere = enchere;
+
+	public void setNomArticle(String nomArticle) {
+		this.nomArticle = nomArticle;
 	}
-	public List<Enchere> getLstEnchere() {
-		return lstEnchere;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setLstEnchere(List<Enchere> lstEnchere) {
-		this.lstEnchere = lstEnchere;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public ArticleVendu getArticle() {
-		return article;
+
+	public String getDateDebutEncheres() {
+		return dateDebutEncheres;
 	}
-	public void setArticle(ArticleVendu article) {
-		this.article = article;
+
+	public void setDateDebutEncheres(String dateDebutEncheres) {
+		this.dateDebutEncheres = dateDebutEncheres;
 	}
-	public List<ArticleVendu> getLstArticle() {
-		return lstArticle;
+
+	public String getDateFinEncheres() {
+		return dateFinEncheres;
 	}
-	public void setLstArticle(List<ArticleVendu> lstArticle) {
-		this.lstArticle = lstArticle;
+
+	public void setDateFinEncheres(String dateFinEncheres) {
+		this.dateFinEncheres = dateFinEncheres;
 	}
-	public Utilisateur getUtil() {
-		return util;
+
+	public float getMiseAPrix() {
+		return miseAPrix;
 	}
-	public void setUtil(Utilisateur util) {
-		this.util = util;
+
+	public void setMiseAPrix(float miseAPrix) {
+		this.miseAPrix = miseAPrix;
 	}
+
+	public float getPrixVente() {
+		return prixVente;
+	}
+
+	public void setPrixVente(float prixVente) {
+		this.prixVente = prixVente;
+	}
+
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
+	}
+
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
+	}
+
 	@Override
 	public String toString() {
-		return "EnchereModel [enchere=" + enchere + ", lstEnchere=" + lstEnchere + ", article=" + article
-				+ ", lstArticle=" + lstArticle + ", util=" + util + "]";
+		return "EnchereModel [nomArticle=" + nomArticle + ", description=" + description + ", dateDebutEncheres="
+				+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
+				+ ", prixVente=" + prixVente + ", nomUtilisateur=" + nomUtilisateur + "]";
 	}
 	
 }
