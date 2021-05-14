@@ -12,6 +12,9 @@ import fr.formation.enchere.bo.Retrait;
 import fr.formation.enchere.bo.Utilisateur;
 
 public class UtilisateurDAOImpl implements UtilisateurDAO {
+	
+	private static final String sqlSelectUtilisateurExist	= "Select * from UTILISATEURS where pseudo = ?";
+	private static final String sqlSelectUtilisateurLogin	= "Select * from UTILISATEURS where pseudo = ? and mot_de_passe = ?";
 	private static final String sqlSelectUtilisateur		= "Select * from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlUpdateUtilisateur	= "Update UTILISATEURS "
 														+ "set no_utilisateur = ?, pseudo = ?, nom = ?, prenom = ?, email = ?, telephone = ?, rue = ?, "
@@ -20,7 +23,66 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	private static final String sqlDeleteUtilisateur		= "Delete from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlInsertUtilisateur		= "Insert into UTILISATEURS (no_article,nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,no_utilisateur,no_categorie) ";
 	
+	// vérifier si un pseudo existe déjà
+	public boolean selectUtilisateurExist(String pseudo) throws DALException {
+		boolean exist = false;
+		PreparedStatement rqt = null;
+		ResultSet rs = null;
+		Utilisateur user = null;
+		try (Connection connection = ConnectionProvider.getConnection()) {
+			System.out.println(connection);
+
+			try {
+				rqt = connection.prepareStatement(sqlSelectUtilisateurExist);
+				rqt.setString(1, pseudo);
+				rs = rqt.executeQuery();
+				if(rs.next())
+				{
+					exist = false;
+				}
+				else
+				{
+					exist = true;
+				}
+			} catch (SQLException e) {
+				throw new DALException("select user failed - ", e);
+			}
+		} catch (SQLException e1) {
+			throw new DALException("CONNEXION failed - ", e1);
+		}
+		return exist;
+	}
 	
+	// vérifier une combinaison mdp / login
+	public boolean selectUtilisateurLogin(String pseudo, String mdp) throws DALException {
+		boolean exist = false;
+		PreparedStatement rqt = null;
+		ResultSet rs = null;
+		Utilisateur user = null;
+		try (Connection connection = ConnectionProvider.getConnection()) {
+			System.out.println(connection);
+
+			try {
+				rqt = connection.prepareStatement(sqlSelectUtilisateurLogin);
+				rqt.setString(1, pseudo);
+				rqt.setString(2, mdp);
+				rs = rqt.executeQuery();
+				if(rs.next())
+				{
+					exist = false;
+				}
+				else
+				{
+					exist = true;
+				}
+			} catch (SQLException e) {
+				throw new DALException("select user failed - ", e);
+			} 
+		} catch (SQLException e1) {
+			throw new DALException("CONNEXION failed - ", e1);
+		}
+		return exist;
+	}
 	
 	// Sélectionner un utilisateur
 	public Utilisateur selectUtilisateur(int no_utilisateur) throws DALException {
