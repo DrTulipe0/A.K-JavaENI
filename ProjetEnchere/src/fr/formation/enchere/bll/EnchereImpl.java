@@ -63,7 +63,12 @@ public class EnchereImpl implements EnchereInterface {
 	}
 	public boolean verifIdentifiant(String login, String mdp) throws EnchereException{
 		boolean verif = false;
-		verif = DAO.getUtilisateurDAO().selectUtilisateurLogin(login,mdp);
+		try {
+			verif = DAO.getUtilisateurDAO().selectUtilisateurLogin(login,mdp);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return verif;
 	}
 	public void creationUtilisateur(Utilisateur util) throws EnchereException{
@@ -76,7 +81,12 @@ public class EnchereImpl implements EnchereInterface {
 	}
 	public int existancePseudo(String pseudo) throws EnchereException{
 		int test=-1;
-		test = DAO.getUtilisateurDAO().selectUtilisateurExist(pseudo);
+		try {
+			test = DAO.getUtilisateurDAO().selectUtilisateurExist(pseudo);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return test;
 	}
 	public List<Enchere> listeEnchereVente(String filtre, String categorie, int numUtil) throws EnchereException{
