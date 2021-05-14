@@ -35,7 +35,7 @@ public class EnchereImpl implements EnchereInterface {
 			break;
 		}
 		try {
-			lstEnchere = DAO.getEnchereDAO().selectAll(numCategorie, filtre);
+			lstEnchere = DAO.getEnchereDAO().selectAll(numCategorie, filtre,-1);
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,7 +63,49 @@ public class EnchereImpl implements EnchereInterface {
 	}
 	public boolean verifIdentifiant(String login, String mdp) throws EnchereException{
 		boolean verif = false;
-		verif = DAO.getUtilisateurDAO().selectUtilisateur(login,mdp);
+		verif = DAO.getUtilisateurDAO().selectUtilisateurLogin(login,mdp);
 		return verif;
+	}
+	public void creationUtilisateur(Utilisateur util) throws EnchereException{
+		try {
+			DAO.getUtilisateurDAO().insertUtilisateur(util);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public int existancePseudo(String pseudo) throws EnchereException{
+		int test=-1;
+		test = DAO.getUtilisateurDAO().selectUtilisateurExist(pseudo);
+		return test;
+	}
+	public List<Enchere> listeEnchereVente(String filtre, String categorie, int numUtil) throws EnchereException{
+
+		int numCategorie = 0;
+		List<Enchere> lstEnchere= new ArrayList();
+		switch (categorie) {
+		case "toute":
+			numCategorie = 0;
+			break;
+		case "Informatique":
+			numCategorie = 1;
+			break;
+		case "Ammeublement":
+			numCategorie = 2;
+			break;
+		case "Vêtement":
+			numCategorie = 3;
+			break;
+		case "Sport&Loisirs":
+			numCategorie = 4;
+			break;
+		}
+		try {
+			lstEnchere = DAO.getEnchereDAO().selectAll(numCategorie, filtre,numUtil);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lstEnchere;
 	}
 }

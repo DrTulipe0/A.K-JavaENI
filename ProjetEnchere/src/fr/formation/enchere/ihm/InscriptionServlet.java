@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.formation.enchere.bll.EnchereException;
 import fr.formation.enchere.bll.EnchereInterface;
 import fr.formation.enchere.bll.EnchereSingl;
 import fr.formation.enchere.bo.Utilisateur;
@@ -31,12 +32,28 @@ public class InscriptionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		boolean verif = true;
+		int test;
 		if (request.getParameter("pseudo") != null || request.getParameter("nom") != null || request.getParameter("prenom") != null || request.getParameter("email") != null || request.getParameter("telephone") != null || request.getParameter("rue") != null || request.getParameter("codePostal") != null || request.getParameter("ville") != null || request.getParameter("mdp") != null || request.getParameter("mdpVerif") != null) {
 			if (request.getParameter("pseudo") != "" || request.getParameter("nom") != "" || request.getParameter("prenom") != "" || request.getParameter("email") != "" || request.getParameter("telephone") != "" || request.getParameter("rue") != "" || request.getParameter("codePostal") != "" || request.getParameter("ville") != "" || request.getParameter("mdp") != "" || request.getParameter("mdpVerif") != "") {
-				if(manager.existancePseudo() == false) {
+				try {
+					test = manager.existancePseudo(request.getParameter("pseudo"));
+					if(test==-1) {
+						verif = false;
+					}
+				} catch (EnchereException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				if(verif == false) {
 					if(request.getParameter("mdp") == request.getParameter("mdpVerif")) {
 						Utilisateur util = new Utilisateur(1,request.getParameter("pseudo"), request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("email"), request.getParameter("telephone"), request.getParameter("rue"), Integer.parseInt(request.getParameter("codePostal")), request.getParameter("ville"), request.getParameter("mdp"),0,false);
-						manager.creationUtilisateur(util);
+						try {
+							manager.creationUtilisateur(util);
+						} catch (EnchereException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 					else {
 						request.setAttribute("erreur", "la confirmation du mot de passe n'est pas valide");

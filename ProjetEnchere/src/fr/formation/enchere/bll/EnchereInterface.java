@@ -11,4 +11,7 @@ public interface EnchereInterface {
 	public ArticleVendu articleEnchere(int no_Article) throws EnchereException;
 	public Utilisateur utilisateurEnchere(int no_Utilisateur) throws EnchereException;
 	public boolean verifIdentifiant(String login, String mdp) throws EnchereException;
+	public void creationUtilisateur(Utilisateur util) throws EnchereException;
+	public int existancePseudo(String pseudo) throws EnchereException;
+	public List<Enchere> listeEnchereVente(String filtre, String categorie, int numUtil) throws EnchereException;
 }

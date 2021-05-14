@@ -42,6 +42,8 @@ public class AccueilServlet extends HttpServlet {
 		List<Enchere> lstEnchere;
 		String filtre = "";
 		String categorie = "";
+		int numUtil;
+		String pseudo = (String) request.getSession().getAttribute("login");
 		if(request.getParameter("typeTransaction") != null || request.getParameter("typeTransaction") != "") {
 			if(request.getParameter("typeTransaction") == "achat") {
 				if (request.getParameter("Filtre") != null || request.getParameter("categorie") != null) {
@@ -55,6 +57,30 @@ public class AccueilServlet extends HttpServlet {
 					
 					try {
 						lstEnchere = manager.listeEnchere(filtre,categorie);
+						for( Enchere uneEnchere : lstEnchere ) {
+							ArticleVendu article = manager.articleEnchere(uneEnchere.getNoArticle());
+							Utilisateur util = manager.utilisateurEnchere(uneEnchere.getNoUtilisateur());
+				            model = new EnchereModel(article.getNomArticle(),article.getDescription(),article.getDateDebutEncheres(),article.getDateFinEncheres(),article.getMiseAPrix(),article.getPrixVente(),util.getPseudo());
+				            listeEnchereModel.add(model);
+				        }
+					} catch (EnchereException e) {
+						request.setAttribute("erreur", e.getMessage());
+					}
+				}
+			}
+			else {
+				if (request.getParameter("Filtre") != null || request.getParameter("categorie") != null) {
+					if(request.getParameter("Filtre") != null) {
+						filtre = request.getParameter("Filtre");
+					}
+					
+					if(request.getParameter("categorie") != null) {
+						categorie = request.getParameter("categorie");
+					}
+					
+					try {
+						numUtil = manager.existancePseudo(pseudo);
+						lstEnchere = manager.listeEnchereVente(filtre,categorie,numUtil);
 						for( Enchere uneEnchere : lstEnchere ) {
 							ArticleVendu article = manager.articleEnchere(uneEnchere.getNoArticle());
 							Utilisateur util = manager.utilisateurEnchere(uneEnchere.getNoUtilisateur());
