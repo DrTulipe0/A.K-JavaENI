@@ -14,7 +14,7 @@ public interface EnchereDAO {
 	public Enchere update(Enchere enchere) throws DALException;
 	
 	//Sélectionner toutes les enchères
-	public List<Enchere> selectAll(int categorieEnchere, String libelleEnchere) throws DALException;
+	public List<Enchere> selectAll(int categorieEnchere, String libelleEnchere,  int no_utilisateur) throws DALException;
 	
 	//Supprimer une enchère
 	public Enchere delete(int no_utilisateur, int no_article) throws DALException;
