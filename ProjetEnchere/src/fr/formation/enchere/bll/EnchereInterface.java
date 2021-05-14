@@ -14,4 +14,6 @@ public interface EnchereInterface {
 	public void creationUtilisateur(Utilisateur util) throws EnchereException;
 	public int existancePseudo(String pseudo) throws EnchereException;
 	public List<Enchere> listeEnchereVente(String filtre, String categorie, int numUtil) throws EnchereException;
+	public void modifUtilisateur(Utilisateur util) throws EnchereException;
+	public void supprimerUtilisateur(int numUtil) throws EnchereException;
 }

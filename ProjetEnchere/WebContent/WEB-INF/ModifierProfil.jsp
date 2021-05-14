@@ -12,7 +12,10 @@
 		<jsp:include page="Profil.jsp"/>
 		Mot de passe actuel : <input type="text" name="mdpActuel" />
 		Crédit : ${credit}
-		<input type="submit" value="Enregistrer"> <input type="submit" value="Supprimer mon compte">
+		<input type="submit" value="Enregistrer"> 
+	</form>
+	<form action="ProfilSupprimServlet">
+		<input type="submit" value="Supprimer mon compte">
 	</form>
 </body>
 </html>

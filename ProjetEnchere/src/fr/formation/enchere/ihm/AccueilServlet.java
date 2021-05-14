@@ -93,7 +93,8 @@ public class AccueilServlet extends HttpServlet {
 				}
 			}
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("listeEnchere", listeEnchereModel);
+		request.getRequestDispatcher("WEB-INF/Accueil.jsp").forward(request, response);
 	}
 
 	/**

@@ -10,21 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 import fr.formation.enchere.bll.EnchereException;
 import fr.formation.enchere.bll.EnchereInterface;
 import fr.formation.enchere.bll.EnchereSingl;
-import fr.formation.enchere.bo.Utilisateur;
 
 /**
- * Servlet implementation class ProfilServlet
+ * Servlet implementation class ProfilSupprimServlet
  */
-@WebServlet("/ProfilServlet")
-public class ProfilServlet extends HttpServlet {
+@WebServlet("/ProfilSupprimServlet")
+public class ProfilSupprimServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private EnchereInterface manager = EnchereSingl.getInstance();
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public ProfilServlet() {
+    public ProfilSupprimServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -34,17 +34,15 @@ public class ProfilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int numUtil;
 		String pseudo = (String) request.getSession().getAttribute("login");
-		Utilisateur util= new Utilisateur();
 		try {
 			numUtil = manager.existancePseudo(pseudo);
-			util = manager.utilisateurEnchere(numUtil);
+			manager.supprimerUtilisateur(numUtil);
 		} catch (EnchereException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("pseudo", pseudo);
-		request.setAttribute("util", util);
-		request.getRequestDispatcher("/ProfilServlet").forward(request, response);
+		request.getSession().setAttribute("login", null);
+		request.getRequestDispatcher("/AccueilServletNonConnecte").forward(request, response);
 	}
 
 	/**

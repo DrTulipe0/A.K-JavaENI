@@ -118,4 +118,20 @@ public class EnchereImpl implements EnchereInterface {
 		}
 		return lstEnchere;
 	}
+	public void modifUtilisateur(Utilisateur util) throws EnchereException{
+		try {
+			DAO.getUtilisateurDAO().updateUtilisateur(util);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void supprimerUtilisateur(int numUtil) throws EnchereException{
+		try {
+			DAO.getUtilisateurDAO().deleteUtilisateur(numUtil);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

@@ -8,15 +8,15 @@
 </head>
 <body>
 	<form action="ProfilServlet">
-		Pseudo : ${pseudo}
-		Nom : ${nom}
-		Prénom : ${prenom}
-		Email : ${email}
-		Teléphone : ${telephone}
-		Rue : ${rue}
-		Code Postal : ${codePostal}
-		Ville : ${ville}
-		<c:if test = "${MonProfil == 1}">
+		Pseudo : ${util.pseudo}
+		Nom : ${util.nom}
+		Prénom : ${util.prenom}
+		Email : ${util.email}
+		Teléphone : ${util.telephone}
+		Rue : ${util.rue}
+		Code Postal : ${util.codePostal}
+		Ville : ${util.ville}
+		<c:if test = "${pseudo == util.pseudo}">
 			<input type="submit" value="Modifier">
 		</c:if>
 	</form>
