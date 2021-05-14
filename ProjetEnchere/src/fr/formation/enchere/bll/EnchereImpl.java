@@ -3,7 +3,11 @@ package fr.formation.enchere.bll;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.formation.enchere.bo.ArticleVendu;
 import fr.formation.enchere.bo.Enchere;
+import fr.formation.enchere.bo.Utilisateur;
+import fr.formation.enchere.dal.DALException;
+import fr.formation.enchere.dal.DAO;
 
 public class EnchereImpl implements EnchereInterface {
 	
@@ -11,7 +15,8 @@ public class EnchereImpl implements EnchereInterface {
 	
 	@Override
 	public List<Enchere> listeEnchere(String filtre, String categorie) throws EnchereException{
-		int numCategorie;
+		int numCategorie = 0;
+		List<Enchere> lstEnchere= new ArrayList();
 		switch (categorie) {
 		case "toute":
 			numCategorie = 0;
@@ -29,7 +34,36 @@ public class EnchereImpl implements EnchereInterface {
 			numCategorie = 4;
 			break;
 		}
-		List<Enchere> lstEnchere = DAO.getEnchereDAO().selectAll(numCategorie, filtre);
+		try {
+			lstEnchere = DAO.getEnchereDAO().selectAll(numCategorie, filtre);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return lstEnchere;
+	}
+	public ArticleVendu articleEnchere(int no_Article) throws EnchereException{
+		ArticleVendu article = new ArticleVendu();
+		try {
+			article=DAO.getArticleDAO().selectArticle(no_Article,0,0,false);
+		} catch (DALException e) {
+			e.printStackTrace();
+		}
+		return article;
+	}
+	public Utilisateur utilisateurEnchere(int no_Utilisateur) throws EnchereException{
+		Utilisateur util = new Utilisateur();
+		try {
+			util=DAO.getUtilisateurDAO().selectUtilisateur(no_Utilisateur);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return util;
+	}
+	public boolean verifIdentifiant(String login, String mdp) throws EnchereException{
+		boolean verif = false;
+		verif = DAO.getUtilisateurDAO().selectUtilisateur(login,mdp);
+		return verif;
 	}
 }
