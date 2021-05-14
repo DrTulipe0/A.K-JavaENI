@@ -5,7 +5,7 @@ import fr.formation.enchere.bo.Utilisateur;
 public interface UtilisateurDAO {
 	
 	// vérifier si un pseudo existe déjà
-	public boolean selectUtilisateurExist(String pseudo) throws DALException;
+	public int selectUtilisateurExist(String pseudo) throws DALException;
 		
 	// vérifier une combinaison mdp / login
 	public boolean selectUtilisateurLogin(String pseudo, String mdp) throws DALException;

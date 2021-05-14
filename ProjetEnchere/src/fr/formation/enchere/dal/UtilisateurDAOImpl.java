@@ -13,7 +13,7 @@ import fr.formation.enchere.bo.Utilisateur;
 
 public class UtilisateurDAOImpl implements UtilisateurDAO {
 	
-	private static final String sqlSelectUtilisateurExist	= "Select * from UTILISATEURS where pseudo = ?";
+	private static final String sqlSelectUtilisateurExist	= "Select no_utilisateur from UTILISATEURS where pseudo = ?";
 	private static final String sqlSelectUtilisateurLogin	= "Select * from UTILISATEURS where pseudo = ? and mot_de_passe = ?";
 	private static final String sqlSelectUtilisateur		= "Select * from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlUpdateUtilisateur	= "Update UTILISATEURS "
@@ -24,8 +24,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	private static final String sqlInsertUtilisateur		= "Insert into UTILISATEURS (no_article,nom_article,description,date_debut_encheres,date_fin_encheres,prix_initial,prix_vente,no_utilisateur,no_categorie) ";
 	
 	// vérifier si un pseudo existe déjà
-	public boolean selectUtilisateurExist(String pseudo) throws DALException {
-		boolean exist = false;
+	public int selectUtilisateurExist(String pseudo) throws DALException {
+		int no_utilisateur = -1;
 		PreparedStatement rqt = null;
 		ResultSet rs = null;
 		Utilisateur user = null;
@@ -36,13 +36,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				rqt = connection.prepareStatement(sqlSelectUtilisateurExist);
 				rqt.setString(1, pseudo);
 				rs = rqt.executeQuery();
-				if(rs.next())
-				{
-					exist = false;
-				}
-				else
-				{
-					exist = true;
+				while (rs.next()) {
+					no_utilisateur = rs.getInt("no_utilisateur");
 				}
 			} catch (SQLException e) {
 				throw new DALException("select user failed - ", e);
@@ -50,7 +45,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		} catch (SQLException e1) {
 			throw new DALException("CONNEXION failed - ", e1);
 		}
-		return exist;
+		return no_utilisateur;
 	}
 	
 	// vérifier une combinaison mdp / login
