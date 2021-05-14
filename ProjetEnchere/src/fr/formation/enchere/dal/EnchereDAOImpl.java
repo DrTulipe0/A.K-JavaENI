@@ -91,7 +91,7 @@ public class EnchereDAOImpl implements EnchereDAO {
 	}
 	
 	//Sélectionner toutes les enchères
-	public List<Enchere> selectAll(int categorieEnchere, String libelleEnchere) throws DALException {
+	public List<Enchere> selectAll(int categorieEnchere, String libelleEnchere, int no_utilisateur) throws DALException {
 		
 		if(categorieEnchere != 0 && libelleEnchere != null && libelleEnchere != "")
 		{
@@ -104,6 +104,10 @@ public class EnchereDAOImpl implements EnchereDAO {
 		if(categorieEnchere != 0 && (libelleEnchere == null || libelleEnchere == ""))
 		{
 			sqlSelectAllEncheres += " and av.no_categorie = " + categorieEnchere;
+		}
+		if(no_utilisateur > 0)
+		{
+			sqlSelectAllEncheres += " and no_utilisateur = " + no_utilisateur;
 		}
 		
 		Statement rqt = null;
